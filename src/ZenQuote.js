@@ -4,6 +4,7 @@ import "./ZenQuote.css";
 
 class ZenQuote extends Component {
   constructor(props) {
+    console.log("IN CONSTUCTOR");
     super(props);
 
     this.state = {
@@ -13,6 +14,7 @@ class ZenQuote extends Component {
   }
 
   componentDidMount() {
+    console.log("IN componentDidMount");
     //load data
     axios.get("https://api.github.com/zen").then(response => {
       setTimeout(
@@ -25,7 +27,12 @@ class ZenQuote extends Component {
     // console.log(response.data));
     //set state with that data
   }
+  componentDidUpdate() {
+    console.log("INSIDE COMPONENT DID UPDATE");
+  }
+
   render() {
+    console.log("IN RENDER");
     return (
       <div>
         {this.state.isLoaded ? (
